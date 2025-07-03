@@ -1,24 +1,60 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Linkedin, Instagram, Youtube, X } from "lucide-react";
 import Orb from './Orb';
+import VariableProximity from "@/components/VariableProximity"; // adjust path if needed
+import { useRef } from "react";
+import GradientText from "./GradientText";
+
 
 export const Hero = () => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden -mt-[4px]">
+
+       <div className="absolute inset-0 z-[0] overflow-hidden">
+  <div className="absolute inset-0 z-[0] overflow-hidden">
+  {/* Light mode video */}
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-full object-cover transform translate-y-20 block dark:hidden"
+  >
+    <source src="/lovable-uploads/hero.mp4" type="video/mp4" />
+  </video>
+
+  {/* Dark mode video */}
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-full object-cover transform translate-y-20 hidden dark:block"
+  >
+    <source src="/lovable-uploads/hero-dark.mp4" type="video/mp4" />
+  </video>
+</div>
+
+</div>
+
+
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20 animate-gradient-shift"></div>
+    {/* <div className="absolute inset-0 bg-white/30 dark:bg-black/30 z-0"></div> */}
       
       {/* Floating particles effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-float opacity-60"></div>
         <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-float-delayed opacity-40"></div>
         <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-teal-400 rounded-full animate-float-slow opacity-50"></div>
         <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-float opacity-30"></div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-8">
@@ -42,60 +78,83 @@ export const Hero = () => {
           <div className="space-y-6">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight animate-fade-in-up">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent animate-gradient-text bg-300% bg-gradient-to-r">
-                Garv Soni
+                {/* ["#ffffff", "#e8ffff", "#f2e2bf" ,"#f49bb0", "#f2e2bf", "#e8ffff", "#ffffff"] */}
+                <GradientText colors={["#ffffff", "#ffffff", "#ffffff", "#000000", "#ffffff", "#ffffff", "#ffffff"]
+
+}>Garv Soni</GradientText>
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 animate-fade-in-up animation-delay-200">
-              <span className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-fade-in">
-                Software Engineer • Entrepreneur • Co-founder of{' '}
-                <a 
-                  href="https://tacl.io" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300 font-semibold underline decoration-blue-300 hover:decoration-purple-300"
-                >
-                  Tacl.io
-                </a>
-              </span>
-            </p>
-          </div>
+            <p className="text-xl md:text-2xl text-white drop-shadow-[0_1px_5px_rgba(0,0,0,0.8)] animate-fade-in-up animation-delay-200">
+  Software Engineer • Entrepreneur • Co-founder of{' '}
+  <a 
+    href="https://tacl.io" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300 font-semibold underline decoration-blue-300 hover:decoration-purple-300"
+  >
+    Tacl.io
+  </a>
+</p>
 
-          {/* Social links with enhanced hover effects */}
-          <div className="flex items-center justify-center gap-8 animate-fade-in-up animation-delay-600">
-            {[
-              { Icon: Instagram, href: "#", color: "hover:text-pink-500" },
-              { Icon: Linkedin, href: "#", color: "hover:text-blue-600" },
-              { Icon: Youtube, href: "#", color: "hover:text-red-500" },
-              { 
-                Icon: () => (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                ), 
-                href: "#", 
-                color: "hover:text-gray-800 dark:hover:text-white" 
-              }
-            ].map(({ Icon, href, color }, index) => (
-              <a 
-                key={index}
-                href={href} 
-                className={`text-gray-500 dark:text-gray-400 ${color} transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 animate-bounce-in`}
-                style={{ animationDelay: `${0.8 + index * 0.1}s` }}
-              >
-                <Icon size={28} />
-              </a>
-            ))}
           </div>
+          {/* Social links with enhanced hover effects */}
+<div className="flex items-center justify-center gap-6 animate-fade-in-up animation-delay-600">
+  {[
+    {
+      Icon: Instagram,
+      href: "https://www.instagram.com/thegarvsoni/",
+      bg: "bg-pink-500 hover:bg-pink-600"
+    },
+    {
+      Icon: Linkedin,
+      href: "https://www.linkedin.com/in/garv-soni-b6bb75258/",
+      bg: "bg-blue-600 hover:bg-blue-700"
+    },
+    {
+      Icon: Youtube,
+      href: "https://www.youtube.com/@thegarvsoni",
+      bg: "bg-red-600 hover:bg-red-700"
+    },
+    {
+      Icon: () => (
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="white">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      ),
+      href: "https://x.com/thegarvsoni",
+      bg: "bg-black hover:bg-neutral-800"
+    }
+  ].map(({ Icon, href, bg }, index) => (
+    <a
+      key={index}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`transition-all duration-300 transform hover:scale-110 animate-bounce-in`}
+      style={{ animationDelay: `${0.8 + index * 0.1}s` }}
+    >
+      <div className={`w-10 h-10 rounded-full ${bg} flex items-center justify-center`}>
+        <Icon size={25} color="white" />
+      </div>
+    </a>
+  ))}
+</div>
+
+
 
         </div>
       </div>
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full mt-2 animate-scroll-indicator"></div>
-            </div>
-          </div>
+      {/* Scroll indicator */}
+{/* Scroll indicator */}
+<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+  <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+    <div className="w-1 h-3 bg-white rounded-full mt-2 animate-scroll-indicator" />
+  </div>
+</div>
+
+
 
       <style>{`
         @keyframes gradient-text {

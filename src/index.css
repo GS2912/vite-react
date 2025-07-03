@@ -186,3 +186,7 @@ html {
 .skill-card-hover:hover {
   animation: pulse-glow 2s infinite;
 }
+
+/* body {
+  cursor: url('/lovable-uploads/mouse.png') 16 16, auto;
+} */

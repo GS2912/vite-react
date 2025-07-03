@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import CircularText from './circularText';
+import GradientText from "./GradientText";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,11 +26,23 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
           <div className="relative group">
-            <div className="text-2xl font-bold cursor-pointer transform transition-all duration-300 hover:scale-105 hover:-translate-y-0.5" onClick={() => scrollToSection('hero')}>
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent animate-gradient-text bg-300% hover:from-purple-600 hover:via-teal-600 hover:to-blue-600 transition-all duration-300">
-                Garv Soni
-              </span>
-            </div>
+            <div
+  className="text-3xl md:text-3xl lg:text-3xl font-extrabold tracking-tight leading-tight cursor-pointer transform transition-all duration-300 hover:scale-110 hover:-translate-y-0.5"
+  onClick={() => scrollToSection('hero')}
+>
+  <span
+    className="bg-clip-text text-transparent transition-all duration-300
+               bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600
+               dark:from-pink-400 dark:via-purple-400 dark:to-cyan-400
+               animate-gradient-light dark:animate-gradient-dark bg-300%
+               drop-shadow-lg dark:drop-shadow-[0_0_6px_rgba(255,255,255,0.2)]"
+    style={{ fontFamily: "'League Spartan', sans-serif" }}
+  >
+    Garv Soni
+  </span>
+</div>
+
+
           </div>
           
           {/* Desktop Navigation */}
@@ -141,6 +153,27 @@ export const Navigation = () => {
         .bg-300% {
           background-size: 300% 300%;
         }
+
+        @keyframes gradient-light {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes gradient-dark {
+  0%, 100% { background-position: 100% 0%; }
+  50% { background-position: 0% 100%; }
+}
+
+.animate-gradient-light {
+  animation: gradient-light 5s ease infinite;
+  background-size: 300% 300%;
+}
+
+.animate-gradient-dark {
+  animation: gradient-dark 6s ease infinite;
+  background-size: 400% 400%;
+}
+
       `}</style>
     </nav>
   );

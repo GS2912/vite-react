@@ -23,16 +23,17 @@ const skillsData = {
       {name: "Reddis", level: 84, icon: "🗄️", bgColor:"ferg", src:"https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/7c0ac2ceb9f9d24992ec393d11fa7337d2f92466/databases/redis.svg"},
       { name: "MongoDB", level: 83, icon: "🍃", bgColor: "from-green-600 to-green-800", src: "https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/7c0ac2ceb9f9d24992ec393d11fa7337d2f92466/databases/mongodb.svg" },
       { name: "React.js", level: 94, icon: "⚛️", bgColor: "from-cyan-400 to-cyan-600", src:"https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/7c0ac2ceb9f9d24992ec393d11fa7337d2f92466/frameworks/react.svg" },
-      { name: "Next.js", level: 87, icon: "▲", bgColor: "from-gray-700 to-black", src: "https://static-00.iconduck.com/assets.00/nextjs-icon-512x512-y563b8iq.png" },
+      { name: "Next.js", level: 87, icon: "▲", bgColor: "from-gray-700 to-black", src: "/lovable-uploads/next-logo.png" },
       { name: "Docker", level: 86, icon: "🐳", bgColor:"", src:"https://www.svgrepo.com/show/448221/docker.svg"},
       { name: "Kubernetes", level: 78, icon: "☸️", bgColor: "from-blue-500 to-purple-600", src:"https://www.svgrepo.com/show/448233/kubernetes.svg" },
       {name:"Digital Ocean", level: 84, icon: "🌊", bgColor:"", src:"https://raw.githubusercontent.com/bablubambal/All_logo_and_pictures/7c0ac2ceb9f9d24992ec393d11fa7337d2f92466/social%20icons/digitalocean.svg" },
       {name:"Playwright", level: 84, icon: "🌊", bgColor:"", src:"https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/2/playwright-y50bnthygb3rvsppvkm9e.png/playwright-q55xzpenhgjsodksybst.png?_a=DATAdtAAZAA0"},
-      { name: "Huggingface Transformers", level: 82, icon: "🤖", bgColor: "from-purple-500 to-pink-500", src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYDvVvSTSxKKvBwZAf9c9UWMY2yOfZvPq46g&s" },
-      { name: "Deep Learning", level: 80, icon: "🧠", bgColor: "from-indigo-500 to-purple-700", src:"https://cdn-icons-png.flaticon.com/512/2103/2103832.png" },
+      { name: "Huggingface Transformers", level: 82, icon: "🤖", bgColor: "from-purple-500 to-pink-500", src:"https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/huggingface-color.png" },
+      // { name: "Deep Learning", level: 80, icon: "🧠", bgColor: "from-indigo-500 to-purple-700", src:"https://cdn-icons-png.flaticon.com/512/2103/2103832.png" },
+      {name: "Chroma", level: 82, icon: "🤖", bgColor: "from-purple-500 to-pink-500",src:"/lovable-uploads/chroma.png"},
       { name: "PyTorch", level: 81, icon: "🔥", bgColor: "from-orange-600 to-red-600", src:"https://www.svgrepo.com/show/354240/pytorch.svg" },
       { name: "TensorFlow", level: 79, icon: "📊", bgColor: "from-orange-500 to-yellow-500", src:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png" },
-      { name: "Langchain", level: 85, icon: "🤖", bgColor: "from-emerald-500 to-teal-600", src:"https://images.seeklogo.com/logo-png/61/1/langchain-icon-logo-png_seeklogo-611655.png" },
+      { name: "Langchain", level: 85, icon: "🤖", bgColor: "from-emerald-500 to-teal-600", src:"/lovable-uploads/langchain.png" },
       { name: "MCP", level: 83, icon: "🔗", bgColor: "from-slate-600 to-slate-800", src:"https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/mcp.png" }
     ]
   },
@@ -41,7 +42,7 @@ const skillsData = {
     icon: Dumbbell,
     gradient: "from-red-500 to-orange-500",
     achievements: [
-      { exercise: "Deadlift", record: "175 KG", description: "Max lift" },
+      { exercise: "Deadlift", record: "180 KG", description: "Max lift" },
       { exercise: "Squat", record: "120 KG", description: "Max lift" },
       { exercise: "Bench Press", record: "90 KG", description: "Max lift" },
       { exercise: "Shoulder Press", record: "32.5 KG", description: "Each hand × 6 reps" },
@@ -93,7 +94,7 @@ export const Skills = () => {
   ];
 
   const renderTechSkills = () => (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0">
       {skillsData.tech.skills.map((skill, index) => (
         <div
           key={skill.name}
@@ -109,9 +110,9 @@ export const Skills = () => {
               captionText={skill.name}
               containerHeight="100%"
               containerWidth="100%"
-              imageHeight="90%"
-              imageWidth="90%"
-              rotateAmplitude={25}
+              imageHeight="80%"
+              imageWidth="80%"
+              rotateAmplitude={40}
               scaleOnHover={1.5}
               showMobileWarning={false}
               showTooltip={true}
@@ -150,45 +151,6 @@ export const Skills = () => {
       ))}
     </div>
   );
-
-  // const renderLeadershipSkills = () => (
-  //   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-  //     {skillsData.leadership.skills.map((skill, index) => (
-  //       <div
-  //         key={skill.name}
-  //         className={`transform transition-all duration-700 ${
-  //           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-  //         }`}
-  //         style={{ transitionDelay: `${index * 150}ms` }}
-  //       >
-  //         <Card className="group hover:shadow-lg transition-all duration-300 border-none bg-gradient-to-br from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 dark:hover:from-purple-800/30 dark:hover:to-pink-800/30">
-  //           <CardContent className="p-6">
-  //             {/* <div className="flex items-center justify-between mb-4">
-  //               <h4 className="font-semibold text-gray-800 dark:text-gray-200">{skill.name}</h4>
-  //               <ChevronRight className="text-purple-500 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-  //             </div>
-  //             <div className="space-y-2">
-  //               <div className="flex justify-between text-sm">
-  //                 <span className="text-gray-600 dark:text-gray-400">Proficiency</span>
-  //                 <span className="font-medium text-purple-600 dark:text-purple-400">{skill.level}%</span>
-  //               </div>
-  //               <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-  //                 <div 
-  //                   className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-1000 ease-out"
-  //                   style={{ 
-  //                     width: isVisible ? `${skill.level}%` : '0%',
-  //                     transitionDelay: `${index * 200}ms`
-  //                   }}
-  //                 />
-  //               </div>
-  //             </div> */}
-  //             <TiltCard skill={skill.name}/>
-  //           </CardContent>
-  //         </Card>
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
   
 const renderLeadershipSkills = () => (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
