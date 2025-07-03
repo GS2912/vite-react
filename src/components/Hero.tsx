@@ -27,7 +27,7 @@ export const Hero = () => {
     playsInline
     className="w-full h-full object-cover transform translate-y-20 block dark:hidden"
   >
-    <source src="/lovable-uploads/hero.mp4" type="video/mp4" />
+    <source src="https://videos.pexels.com/video-files/1722697/1722697-uhd_2560_1440_25fps.mp4" type="video/mp4" />
   </video>
 
   {/* Dark mode video */}
@@ -38,7 +38,7 @@ export const Hero = () => {
     playsInline
     className="w-full h-full object-cover transform translate-y-20 hidden dark:block"
   >
-    <source src="/lovable-uploads/hero-dark.mp4" type="video/mp4" />
+    <source src="https://videos.pexels.com/video-files/5380054/5380054-uhd_2560_1440_30fps.mp4" type="video/mp4" />
   </video>
 </div>
 
